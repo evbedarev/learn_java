@@ -3,6 +3,7 @@ package calc;
 public class SimpleCalculator2 {
     public double dblX, dblY;
 
+//Конструктор если X и Y типа Int
     SimpleCalculator2(int intX, int intY) {
         this.dblX = intX;
         this.dblY = intY;
@@ -23,7 +24,7 @@ public class SimpleCalculator2 {
         this.dblX = dblX;
     }
 
-
+//Методы +,-,/,*
     public double plus() {
         return dblX + dblY;
     }

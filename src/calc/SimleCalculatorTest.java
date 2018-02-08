@@ -16,8 +16,8 @@ public class SimleCalculatorTest {
     }
 
 
-
-    public static void testOper(String message, double expect, double actual) {
+//Метод который вызывает метод assertSomething класса Assert и обрабатывает исключение.
+    private static void testOper(String message, double expect, double actual) {
 
 
         Assert asrt = new Assert();

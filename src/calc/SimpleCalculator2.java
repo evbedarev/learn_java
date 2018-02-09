@@ -1,41 +1,41 @@
 package calc;
 
 public class SimpleCalculator2 {
-    public double dblX, dblY;
+    public double dblFistNum, dblSecNum;
 
 //Конструктор если X и Y типа Int
-    SimpleCalculator2(int intX, int intY) {
-        this.dblX = intX;
-        this.dblY = intY;
+    SimpleCalculator2(int firstNum, int secNum) {
+        this.dblFistNum = firstNum;
+        this.dblSecNum = secNum;
     }
 
-    SimpleCalculator2(int intX, double dblY) {
-        this.dblX = intX;
-        this.dblY = dblY;
+    SimpleCalculator2(int firstNum, double dblSecNum) {
+        this.dblFistNum = firstNum;
+        this.dblSecNum = dblSecNum;
     }
 
-    SimpleCalculator2(double dblX, int intY) {
-        this.dblX = intY;
-        this.dblX = dblX;
+    SimpleCalculator2(double dblFistNum, int secNum) {
+        this.dblFistNum = secNum;
+        this.dblFistNum = dblFistNum;
     }
 
-    SimpleCalculator2(double dblX, double dblY) {
-        this.dblY = dblY;
-        this.dblX = dblX;
+    SimpleCalculator2(double dblFistNum, double dblSecNum) {
+        this.dblSecNum = dblSecNum;
+        this.dblFistNum = dblFistNum;
     }
 
 //Методы +,-,/,*
     public double plus() {
-        return dblX + dblY;
+        return dblFistNum + dblSecNum;
     }
     public double subst() {
-        return dblX - dblY;
+        return dblFistNum - dblSecNum;
     }
     public double mult() {
-        return dblX*dblY;
+        return dblFistNum*dblSecNum;
     }
     public double dev() {
-        return dblX/dblY;
+        return dblFistNum/dblSecNum;
     }
 
 

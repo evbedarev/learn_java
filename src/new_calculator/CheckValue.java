@@ -6,9 +6,9 @@ public class CheckValue {
     public String[] check (String cmd) {
 
         String[] groups = new String[4];
-        Pattern pattern = Pattern.compile("^(\\d+\\.?\\d*(?:[lLfF])) *([*+\\-/]) *(\\d+\\.?\\d*(?:[lLfF]))$");
-        Pattern pattern1 = Pattern.compile("^(\\d+\\.?\\d*(?:[lLfF])).*");
-        Pattern pattern2 = Pattern.compile("^(\\d+\\.?\\d*(?:[lLfF])) *([*+\\-/]).*");
+        Pattern pattern3 = Pattern.compile("^(-?\\d+\\.?\\d*(?:[lLfF])?) *([*+\\-/]) *(-?\\d+\\.?\\d*(?:[lLfF])?)$");
+        Pattern pattern1 = Pattern.compile("^(-?\\d+\\.?\\d*(?:[lLfF])?).*");
+        Pattern pattern2 = Pattern.compile("^(-?\\d+\\.?\\d*(?:[lLfF])?) *([*+\\-/]).*");
 
         groups = retArr(pattern1, 2, cmd, "Error, wrong expr at first nuber");
         if (groups[0].matches("Error.*")) {
@@ -20,7 +20,7 @@ public class CheckValue {
             return groups;
         }
 
-        groups = retArr(pattern, 4, cmd, "Error, wrong expr at second nuber");
+        groups = retArr(pattern3, 4, cmd, "Error, wrong expr at second nuber");
         if (groups[0].matches("Error.*")) {
             return groups;
         }

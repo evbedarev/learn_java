@@ -10,6 +10,7 @@ public class CheckValue {
         Pattern pattern1 = Pattern.compile("^(-?\\d+\\.?\\d*(?:[lLfF])?).*");
         Pattern pattern2 = Pattern.compile("^(-?\\d+\\.?\\d*(?:[lLfF])?) *([*+\\-/]).*");
 
+
         groups = retArr(pattern1, 2, cmd, "Error, wrong expr at first nuber");
         if (groups[0].matches("Error.*")) {
             return groups;
@@ -28,6 +29,19 @@ public class CheckValue {
         return groups;
 
     }
+
+    public String[] checkSecondValue (String cmd) {
+        String[] groups = new String[4];
+        Pattern pattern4 = Pattern.compile(".*= *(-?\\d+\\.?\\d*(?:[lLfF])?) *([*+\\-/]) *(-?\\d+\\.?\\d*(?:[lLfF])?)$");
+        groups = retArr(pattern4, 4, cmd, "Error, wrong expr at second nuber");
+
+
+        if (groups[0].matches("Error.*")) {
+            return groups;
+        }
+        return groups;
+    }
+
 
 
     //получает паттерн и колличество групп в паттерне, строку в которой будет производится поиск и сообщение ошибки

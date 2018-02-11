@@ -23,6 +23,7 @@ public class Maths {
         return "";
     }
 
+    //Проверяет число в конце числа,если это точка то возвращает число без дробной части.
     private String checkZeroAtTheEnd (double num) {
         String strNum = Double.toString(num);
         if (strNum.matches("\\d+\\.0$")) {

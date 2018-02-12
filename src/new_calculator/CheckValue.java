@@ -1,7 +1,7 @@
 package new_calculator;
 import java.util.regex.*;
 
-public class CheckValue {
+class CheckValue {
 
     public String[] check (String cmd) {
 
@@ -11,7 +11,7 @@ public class CheckValue {
         Pattern pattern2 = Pattern.compile("^(-?\\d+\\.?\\d*(?:[lLfF])?) *([*+\\-/]).*");
 
 
-        groups = retArr(pattern1, 2, cmd, "Error, wrong expr at first nuber");
+        groups = retArr(pattern1, 2, cmd, "Error, wrong expr at first number");
         if (groups[0].matches("Error.*")) {
             return groups;
         }
@@ -21,7 +21,7 @@ public class CheckValue {
             return groups;
         }
 
-        groups = retArr(pattern3, 4, cmd, "Error, wrong expr at second nuber");
+        groups = retArr(pattern3, 4, cmd, "Error, wrong expr at second number");
         if (groups[0].matches("Error.*")) {
             return groups;
         }
@@ -30,22 +30,11 @@ public class CheckValue {
 
     }
 
-    public String[] checkSecondValue (String cmd) {
-        String[] groups = new String[4];
-        Pattern pattern4 = Pattern.compile(".*= *(-?\\d+\\.?\\d*(?:[lLfF])?) *([*+\\-/]) *(-?\\d+\\.?\\d*(?:[lLfF])?)$");
-        groups = retArr(pattern4, 4, cmd, "Error, wrong expr at second nuber");
-
-
-        if (groups[0].matches("Error.*")) {
-            return groups;
-        }
-        return groups;
-    }
 
 
 
     //получает паттерн и колличество групп в паттерне, строку в которой будет производится поиск и сообщение ошибки
-    private String[] retArr(Pattern pat1, int val, String cmd, String msg) {
+    String[] retArr(Pattern pat1, int val, String cmd, String msg) {
 
         String[] groups = new String[4];
         Matcher m = pat1.matcher(cmd);
@@ -65,4 +54,17 @@ public class CheckValue {
     }
 
 
+class CheckSecondValue extends CheckValue {
+    public String[] check (String cmd) {
+        String[] groups = new String[4];
+        Pattern pattern = Pattern.compile(".*= *(-?\\d+\\.?\\d*(?:[lLfF])?) *([*+\\-/]) *(-?\\d+\\.?\\d*(?:[lLfF])?)$");
+
+        groups = retArr(pattern, 4, cmd, "Error, wrong expr at second nuber or mathematical operation");
+        if (groups[0].matches("Error.*")) {
+            return groups;
+        }
+        return groups;
+
+    }
+}
 

@@ -35,7 +35,7 @@ public class Maths {
 
 
 
-    public Double verifyType(String num) {
+    private Double verifyType(String num) {
         double firstNum;
 
         if (num.matches(".*[fF]$")) {
